@@ -23,7 +23,7 @@ contract('Testing mainnet', ([acc]) => {
     it('swapping ETH for DAI...', async () => {
       const ethBalanceBefore = await web3.eth.getBalance(acc)
       const daiBalanceBefore = await dai.methods.balanceOf(acc).call()
-
+      //1-min. number of retrieved tokens;2525644800 -random timestamp(2050y)
       await daiSwap.methods.ethToTokenSwapInput(1, 2525644800).send({from: acc, value: web3.utils.toWei('1', 'Ether')})
 
       const ethBalanceAfter = await web3.eth.getBalance(acc)
